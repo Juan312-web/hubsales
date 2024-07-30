@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+html,
+body {
+  height: 100%;
+  font-family: v.$fuente_textos;
+}
+
+body {
+  font-size: 1.6em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: v.$fuente_headings;
+}
+
+
+.logo {
+  width: 100%;
+  max-width: 8rem;
+
+  @include m.telefono {
+    max-width: 12rem;
+  }
+}
+
+
+
+.hide {
+  display: none;
+}

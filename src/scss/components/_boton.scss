@@ -1,0 +1,27 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton {
+  @include m.boton(v.$color-800, v.$color-200, v.$color-300);
+
+  &.disable {
+    @include m.boton(v.$color-800, v.$color-200);
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &.xl {
+    font-size: 2em;
+  }
+
+  &--inline {
+    @include m.boton(v.$color-800, v.$color-200, v.$color-300);
+    display: inline-block;
+  }
+
+  &.danger {
+    background-color: v.$danger;
+  }
+}
