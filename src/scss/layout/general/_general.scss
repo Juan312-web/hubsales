@@ -1,0 +1,72 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.statistics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  background: v.$color-100;
+
+
+  &__row {
+    display: grid;
+    gap: 2rem;
+
+    &>* {
+      background-color: v.$crema;
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+  }
+
+  &__image__container {
+    img {
+      max-width: 100%;
+      width: 15rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    &__container {
+
+      h2,
+      p {
+        text-align: center;
+        color: v.$color-600;
+      }
+
+      h2 {
+        font-size: 4em;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  @include m.desktop {
+    padding: 6rem;
+    grid-template-rows: 1fr 1fr;
+
+    &__row {
+      grid-template-rows: 1fr;
+
+      &.col2 {
+        @include m.grid(2, 2rem)
+      }
+
+      &.col3 {
+        @include m.grid(3, 2rem)
+      }
+
+    }
+  }
+}

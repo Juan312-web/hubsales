@@ -3,7 +3,6 @@
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
 
   <div class="content">
-    <h1>Contenido</h1>
-    <p>Contenido</p>
+    <h1 class="title"><?php echo $title ?></h1>
   </div>
 </div>

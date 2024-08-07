@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\GeneralController;
 use Controllers\LoginController;
 use MVC\Router;
 
@@ -39,7 +40,9 @@ $router->get('/message', [LoginController::class, 'message']);
 $router->get('/confirm', [LoginController::class, 'confirm']);
 
 
-// ? Dashboard ------------------------------------------------------------------------------
+// ? General ------------------------------------------------------------------------------
+
+$router->get('/general', [GeneralController::class, 'index']);
 
 
 // ? ----------------------------------------------------------------------------------------
