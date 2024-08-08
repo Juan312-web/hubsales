@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\GeneralController;
 use Controllers\LoginController;
+use Controllers\UserController;
 use MVC\Router;
 
 $router = new Router();
@@ -40,10 +41,15 @@ $router->get('/message', [LoginController::class, 'message']);
 $router->get('/confirm', [LoginController::class, 'confirm']);
 
 
-// ? General ------------------------------------------------------------------------------
+// ? Dashboard ------------------------------------------------------------------------------
 
+// * General
 $router->get('/general', [GeneralController::class, 'index']);
+$router->post('/general', [GeneralController::class, 'index']);
 
+// * Users
+$router->get('/users', [UserController::class, 'index']);
+$router->post('/users', [UserController::class, 'index']);
 
 // ? ----------------------------------------------------------------------------------------
 

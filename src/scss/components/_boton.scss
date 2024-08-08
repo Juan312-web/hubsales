@@ -2,7 +2,7 @@
 @use 'base/mixins' as m;
 
 .boton {
-  @include m.boton(v.$color-800, v.$color-200, v.$color-300);
+  @include m.boton(v.$color-900, v.$color-200, v.$color-300);
 
   &.disable {
     @include m.boton(v.$color-800, v.$color-200);
@@ -17,11 +17,21 @@
   }
 
   &--inline {
-    @include m.boton(v.$color-800, v.$color-200, v.$color-300);
+    width: auto;
     display: inline-block;
   }
 
   &.danger {
     background-color: v.$danger;
   }
+
+  &--secundary {
+    background-color: v.$color-600;
+    color: v.$blanco;
+
+    &:hover {
+      background-color: lighten($color: v.$color-600, $amount: 10%);
+    }
+  }
+
 }

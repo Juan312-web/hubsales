@@ -10,7 +10,7 @@
         </div>
         <div class="statistics__info__container">
           <h2>20,2K</h2>
-          <p>Clientes</p>
+          <p>Customers</p>
         </div>
       </div>
       <div class="statistics__products statistics__info">
@@ -19,7 +19,7 @@
         </div>
         <div class="statistics__info__container">
           <h2>131,1K</h2>
-          <p>Productos</p>
+          <p>Products</p>
         </div>
       </div>
       <div class="statistics__effecty statistics__info">
@@ -28,7 +28,7 @@
         </div>
         <div class="statistics__info__container">
           <h2>95%</h2>
-          <p>Efectividad</p>
+          <p>Effecty</p>
         </div>
       </div>
     </div>
