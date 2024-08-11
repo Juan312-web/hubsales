@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function initApp() {
   handleMenu();
   handleSelectedLink();
+  handleSearchView();
 }
 
 function handleMenu() {
@@ -43,4 +44,14 @@ function handleSelectedLink() {
       }
     });
   }
+}
+
+function handleSearchView() {
+  const userSearch = document.querySelector('#users__search');
+  const userSearchButton = document.querySelector('.users__search__button');
+
+  userSearchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    userSearch.classList.toggle('active__search');
+  });
 }

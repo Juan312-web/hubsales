@@ -7,7 +7,7 @@
   height: 100%;
   flex-direction: column;
 
-  @include m.telefono {
+  @include m.desktop {
     flex-direction: row;
   }
 }
@@ -114,7 +114,7 @@
     left: 0;
   }
 
-  @include m.telefono {
+  @include m.desktop {
     max-width: 30rem;
     display: block;
 
@@ -141,7 +141,7 @@
     font-size: 5rem;
   }
 
-  @include m.telefono {
+  @include m.desktop {
     display: none;
   }
 }
@@ -162,7 +162,7 @@
     cursor: pointer;
   }
 
-  @include m.telefono {
+  @include m.desktop {
     display: none;
   }
 }

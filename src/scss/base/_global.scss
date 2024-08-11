@@ -13,7 +13,6 @@ html {
   font-size: 62.5%;
 }
 
-
 html,
 body {
   height: 100%;
@@ -30,17 +29,14 @@ h3 {
   font-family: v.$fuente_headings;
 }
 
-
 .logo {
   width: 100%;
   max-width: 8rem;
 
-  @include m.telefono {
+  @include m.desktop {
     max-width: 12rem;
   }
 }
-
-
 
 .hide {
   display: none;
