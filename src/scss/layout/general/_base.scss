@@ -1,0 +1,125 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.default__dashboard {
+
+
+
+  &__actions__buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2rem;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: v.$color-100;
+    border: none;
+    padding: 2rem 6rem;
+    color: v.$color-900;
+
+    &:focus {
+      outline: 1px solid v.$color-300;
+    }
+  }
+
+  .search {
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all .3s ease-in-out;
+
+    &__icon {
+      position: absolute;
+      left: 2rem;
+      top: calc(30%);
+    }
+  }
+
+
+  @include m.tablet {
+    gap: 1rem;
+
+    &__title,
+    &__desc {
+      text-align: left;
+    }
+  }
+}
+
+.search.active__search {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  padding: 1rem 0;
+}
+
+.views {
+  &__header__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include m.tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__title,
+  &__desc {
+    text-align: center;
+    color: v.$color-700;
+  }
+
+  &__title {
+    font-size: 5em;
+    margin: 0;
+  }
+
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__actions__buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2rem;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: v.$color-100;
+    border: none;
+    padding: 2rem 6rem;
+    color: v.$color-900;
+
+    &:focus {
+      outline: 1px solid v.$color-300;
+    }
+  }
+
+  .search {
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all .3s ease-in-out;
+
+    &__icon {
+      position: absolute;
+      left: 2rem;
+      top: calc(30%);
+    }
+  }
+
+
+  @include m.tablet {
+    gap: 1rem;
+
+    &__title,
+    &__desc {
+      text-align: left;
+    }
+  }
+}

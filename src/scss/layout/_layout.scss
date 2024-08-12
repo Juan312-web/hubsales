@@ -62,11 +62,11 @@
     }
 
     &.selected {
-      background-color: v.$color-400;
+      background-color: v.$blanco;
 
       .sidebar__link__title,
       .sidebar__icon {
-        color: v.$blanco;
+        color: v.$color-800;
       }
     }
   }
@@ -97,13 +97,10 @@
 
     }
 
-    &__text {
-      color: v.$color-100;
-      font-size: 1.2em;
-    }
+
 
     span {
-      color: v.$color-100;
+      color: v.$blanco;
     }
   }
 

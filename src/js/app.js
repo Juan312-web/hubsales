@@ -47,8 +47,8 @@ function handleSelectedLink() {
 }
 
 function handleSearchView() {
-  const userSearch = document.querySelector('#users__search');
-  const userSearchButton = document.querySelector('.users__search__button');
+  const userSearch = document.querySelector('#views__search');
+  const userSearchButton = document.querySelector('.search__button');
 
   userSearchButton.addEventListener('click', (e) => {
     e.preventDefault();

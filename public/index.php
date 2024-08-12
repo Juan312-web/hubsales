@@ -2,8 +2,12 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\CustomerController;
 use Controllers\GeneralController;
+use Controllers\InvoiceController;
 use Controllers\LoginController;
+use Controllers\PaymentController;
+use Controllers\ProductController;
 use Controllers\UserController;
 use MVC\Router;
 
@@ -51,6 +55,21 @@ $router->post('/general', [GeneralController::class, 'index']);
 $router->get('/users', [UserController::class, 'index']);
 $router->post('/users', [UserController::class, 'index']);
 
+// * Products
+$router->get('/products', [ProductController::class, 'index']);
+$router->post('/products', [ProductController::class, 'index']);
+
+// * Customers
+$router->get('/customers', [CustomerController::class, 'index']);
+$router->post('/customers', [CustomerController::class, 'index']);
+
+// * Invoices
+$router->get('/invoices', [InvoiceController::class, 'index']);
+$router->post('/invoices', [InvoiceController::class, 'index']);
+
+// * Payments
+$router->get('/payments', [PaymentController::class, 'index']);
+$router->post('/payments', [PaymentController::class, 'index']);
 // ? ----------------------------------------------------------------------------------------
 
 
