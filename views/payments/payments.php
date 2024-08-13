@@ -1,3 +1,5 @@
+<?php $payments = $allPayments ?>
+
 <div class="container">
   <?php include_once __DIR__ . '/../components/header.php'; ?>
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
@@ -15,26 +17,22 @@
     <div class="payment__table">
       <table>
         <thead>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Email</th>
+          <th>Paycode</th>
+          <th>Invoice Code</th>
+          <th>Total Pay</th>
+          <th>Pay State</th>
+          <th>Pay Date</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Admin</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correopersonal@correo.com</td>
-          </tr>
+          <?php foreach ($payments as $payment): ?>
+            <tr>
+              <td><?php echo $payment->pay_identity; ?></td>
+              <td><?php echo $payment->inv_code; ?></td>
+              <td><?php echo $payment->pay_amount; ?></td>
+              <td><?php echo $payment->state; ?></td>
+              <td><?php echo $payment->pay_date; ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>

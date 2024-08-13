@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class InvoicesDetails extends ActiveRecord
+class InvoiceDetails extends ActiveRecord
 {
   protected static $tabla = 'invoice_details';
   protected static $columnasDB = ['det_id', 'det_subtotal', 'det_amount', 'det_fac_id', 'det_prod_id'];
@@ -15,10 +15,10 @@ class InvoicesDetails extends ActiveRecord
 
   public function __construct($args = [])
   {
-    $this->det_id = args['det_id'] ?? null;
-    $this->det_subtotal = args['det_subtotal'] ?? '';
-    $this->det_amount = args['det_amount'] ?? '';
-    $this->det_fac_id = args['det_fac_id'] ?? '';
-    $this->det_prod_id = args['det_prod_id'] ?? '';
+    $this->det_id = $args['det_id'] ?? null;
+    $this->det_subtotal = $args['det_subtotal'] ?? '';
+    $this->det_amount = $args['det_amount'] ?? '';
+    $this->det_fac_id = $args['det_fac_id'] ?? '';
+    $this->det_prod_id = $args['det_prod_id'] ?? '';
   }
 }

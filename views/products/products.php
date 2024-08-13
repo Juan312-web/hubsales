@@ -1,3 +1,7 @@
+<?php
+$products = $allProducts;
+$categories = $allCategories ?>
+
 <div class="container">
   <?php include_once __DIR__ . '/../components/header.php'; ?>
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
@@ -12,29 +16,32 @@
 
     @include_once __DIR__ . '/../components/view_header.php';
     ?>
+    <a href="/categories" id="productSearch" class="search__button boton boton--inline space">Add Categorie</a>
+
     <div class="products__table">
       <table>
         <thead>
           <th>Name</th>
-          <th>Role</th>
-          <th>Email</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Categorie</th>
+          <th>Description</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Admin</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correopersonal@correo.com</td>
-          </tr>
+          <?php foreach ($products as $product) : ?>
+            <tr>
+              <td><?php echo $product->prod_name ?></td>
+              <td><?php echo $product->prod_u_price ?></td>
+              <td><?php echo $product->prod_stock ?></td>
+
+              <?php foreach ($categories as $categorie):  ?>
+                <?php if ($product->prod_cat_id === $categorie->cat_id):  ?>
+                  <td><?php echo $categorie->cat_name ?></td>
+                <?php endif ?>
+              <?php endforeach ?>
+              <td class="ellipsis"><?php echo $product->prod_description ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>

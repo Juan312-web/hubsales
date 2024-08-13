@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\CategorieController;
 use Controllers\CustomerController;
 use Controllers\GeneralController;
 use Controllers\InvoiceController;
@@ -63,6 +64,10 @@ $router->post('/products', [ProductController::class, 'index']);
 $router->get('/customers', [CustomerController::class, 'index']);
 $router->post('/customers', [CustomerController::class, 'index']);
 
+// * Categories
+$router->get('/categories', [CategorieController::class, 'index']);
+$router->post('/categories', [CategorieController::class, 'index']);
+
 // * Invoices
 $router->get('/invoices', [InvoiceController::class, 'index']);
 $router->post('/invoices', [InvoiceController::class, 'index']);
@@ -70,6 +75,7 @@ $router->post('/invoices', [InvoiceController::class, 'index']);
 // * Payments
 $router->get('/payments', [PaymentController::class, 'index']);
 $router->post('/payments', [PaymentController::class, 'index']);
+
 // ? ----------------------------------------------------------------------------------------
 
 

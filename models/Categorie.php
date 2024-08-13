@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class Categories extends ActiveRecord
+class Categorie extends ActiveRecord
 {
   protected static $tabla = 'product_categories';
   protected static $columnasDB = ['cat_id', 'cat_name', 'cat_description'];
@@ -13,8 +13,8 @@ class Categories extends ActiveRecord
 
   public function __construct($args = [])
   {
-    $this->cat_id = args['cat_id'] ?? null;
-    $this->cat_name = args['cat_name'] ?? '';
-    $this->cat_description = args['cat_description'] ?? '';
+    $this->cat_id = $args['cat_id'] ?? null;
+    $this->cat_name = $args['cat_name'] ?? '';
+    $this->cat_description = $args['cat_description'] ?? '';
   }
 }

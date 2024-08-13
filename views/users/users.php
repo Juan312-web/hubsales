@@ -1,3 +1,4 @@
+<?php $users = $allUsers ?>
 <div class="container">
   <?php include_once __DIR__ . '/../components/header.php'; ?>
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
@@ -16,26 +17,20 @@
     <div class="users__table">
       <table>
         <thead>
+          <th>ID</th>
           <th>Name</th>
           <th>Role</th>
           <th>Email</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Admin</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correopersonal@correo.com</td>
-          </tr>
+          <?php foreach ($users as $user) : ?>
+            <tr>
+              <td><?php echo $user->user_id ?></td>
+              <td><?php echo $user->user_name . ' ' . $user->user_lastname ?></td>
+              <td><?php echo $user->user_role === 1 ? 'Admin' : 'Normal' ?></td>
+              <td><?php echo $user->user_email ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>

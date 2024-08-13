@@ -1,3 +1,5 @@
+<?php $customers = $allCustomers ?>
+
 <div class="container">
   <?php include_once __DIR__ . '/../components/header.php'; ?>
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
@@ -16,25 +18,19 @@
       <table>
         <thead>
           <th>Name</th>
-          <th>Role</th>
+          <th>Identity</th>
           <th>Email</th>
+          <th>Address</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Admin</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correopersonal@correo.com</td>
-          </tr>
+          <?php foreach ($customers as $customer) : ?>
+            <tr>
+              <td><?php echo $customer->cli_name . ' ', $customer->cli_lastname ?></td>
+              <td><?php echo $customer->cli_identity ?></td>
+              <td><?php echo $customer->cli_email ?></td>
+              <td><?php echo $customer->cli_address ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>

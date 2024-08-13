@@ -61,6 +61,13 @@ table {
       color: v.$color-900;
       font-size: 1em;
       border: 1px solid v.$color-300;
+
+      &.ellipsis {
+        max-width: 20rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }

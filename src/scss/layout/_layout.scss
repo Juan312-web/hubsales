@@ -51,11 +51,11 @@
     transition: all .3s ease;
 
     &:hover {
-      background-color: v.$color-400;
+      background-color: darken($color: v.$blanco, $amount: 20%);
 
       .sidebar__link__title,
       .sidebar__icon {
-        color: v.$blanco;
+        color: v.$color-800;
       }
 
 

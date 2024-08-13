@@ -1,3 +1,6 @@
+<?php
+$invoices = $AllinvoicesFormat;
+?>
 <div class="container">
   <?php include_once __DIR__ . '/../components/header.php'; ?>
   <?php include_once __DIR__ . '/../templates/sidebar.php'; ?>
@@ -15,26 +18,20 @@
     <div class="invoices__table">
       <table>
         <thead>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Email</th>
+          <th>Id</th>
+          <th>Customer Name</th>
+          <th>User Name</th>
+          <th>Date Expiration</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Admin</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correo@correo.com</td>
-          </tr>
-          <tr>
-            <td>Juan Carlos Real</td>
-            <td>Default</td>
-            <td>correopersonal@correo.com</td>
-          </tr>
+          <?php foreach ($invoices as $invoice): ?>
+            <tr>
+              <td><?php echo $invoice->identity ?></td>
+              <td><?php echo $invoice->cli_name ?></td>
+              <td><?php echo $invoice->user_name ?></td>
+              <td><?php echo $invoice->date_exp ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>
