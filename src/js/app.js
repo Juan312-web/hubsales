@@ -50,8 +50,10 @@ function handleSearchView() {
   const userSearch = document.querySelector('#views__search');
   const userSearchButton = document.querySelector('.search__button');
 
-  userSearchButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    userSearch.classList.toggle('active__search');
-  });
+  if (userSearchButton) {
+    userSearchButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      userSearch.classList.toggle('active__search');
+    });
+  }
 }

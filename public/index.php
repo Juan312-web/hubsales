@@ -56,6 +56,10 @@ $router->post('/general', [GeneralController::class, 'index']);
 $router->get('/users', [UserController::class, 'index']);
 $router->post('/users', [UserController::class, 'index']);
 
+//= Users Add
+$router->get('/users-add', [UserController::class, 'addUser']);
+
+
 // * Products
 $router->get('/products', [ProductController::class, 'index']);
 $router->post('/products', [ProductController::class, 'index']);

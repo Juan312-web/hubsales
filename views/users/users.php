@@ -7,7 +7,7 @@
     <?php
     $inputPlaceholder = 'Search by Email';
     $buttonContent = '
-        <a id="userAdd" class="add__button boton boton--inline boton--secundary">Add User</a>
+        <a href="/users-add" id="userAdd" class="add__button boton boton--inline boton--secundary">Add User</a>
         <a id="userSearch" class="search__button boton boton--inline">Search User</a>
       ';
 

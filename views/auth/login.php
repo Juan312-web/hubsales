@@ -3,7 +3,7 @@
   </section>
   <section class="login__content content">
     <h1>Log In!</h1>
-    <form class="form" action="">
+    <form class="form__login" action="">
       <div class="input">
         <input type="email" name="email" id="email" placeholder="Email">
         <span class="material-symbols-outlined">
