@@ -38,30 +38,33 @@ class ActiveRecord
     }
 
     // Registros - CRUD
-    public function guardar()
+    public function guardar($pre)
     {
         $resultado = '';
-        if (!is_null($this->id)) {
+        if (!is_null($this->$pre)) {
             // actualizar
-            $resultado = $this->actualizar();
+            $resultado = $this->actualizar($pre);
         } else {
             // Creando un nuevo registro
-            $resultado = $this->crear();
+            $resultado = $this->crear($pre);
         }
         return $resultado;
     }
 
-    public static function all()
+    public static function all($pre = '')
     {
         $query = "SELECT * FROM " . static::$tabla;
+        if ($pre) {
+            $query .= " ORDER BY {$pre} ASC";
+        }
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
 
     // Busca un registro por su id
-    public static function find($id)
+    public static function find($pre, $id)
     {
-        $query = "SELECT * FROM " . static::$tabla  . " WHERE id = {$id}";
+        $query = "SELECT * FROM " . static::$tabla  . " WHERE {$pre} = {$id}";
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
@@ -82,6 +85,14 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    // Busqueda Where con Columna 
+    public static function whereContains($columna, $valor)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} LIKE '{$valor}%'";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // SQL para Consultas Avanzadas.
     public static function SQL($consulta)
     {
@@ -91,32 +102,32 @@ class ActiveRecord
     }
 
     // crea un nuevo registro
-    public function crear()
+    public function crear($pre)
     {
         // Sanitizar los datos
-        $atributos = $this->sanitizarAtributos();
+        $atributos = $this->sanitizarAtributos($pre);
 
-        // Insertar en la base de datos
-        $query = "INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES ('";
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
+        $query = "INSERT INTO " . static::$tabla . " (";
+        $query .= join(", ", array_keys($atributos));
+        $query .= ") VALUES (";
 
-        // Resultado de la consulta
+        $query .= join(', ', array_fill(0, count($atributos), '?'));
+        $query .= ")";
+
         $resultado = self::$db->prepare($query);
-        $resultado->execute($query);
+        $valores = array_values($atributos);
+
+        $resultado->execute($valores);
 
         return [
             'resultado' =>  $resultado,
         ];
     }
 
-    public function actualizar()
+    public function actualizar($pre)
     {
         // Sanitizar los datos
-        $atributos = $this->sanitizarAtributos();
-
+        $atributos = $this->sanitizarAtributos($pre);
         // Iterar para ir agregando cada campo de la BD
         $valores = [];
         foreach ($atributos as $key => $value) {
@@ -125,10 +136,7 @@ class ActiveRecord
 
         $query = "UPDATE " . static::$tabla . " SET ";
         $query .=  join(', ', $valores);
-        $query .= " WHERE id = '" . self::$db->$this->id . "' ";
-        $query .= " LIMIT 1 ";
-
-
+        $query .= " WHERE {$pre} = '" . intval($this->$pre) . "'";
         $resultado = self::$db->prepare($query);
         $resultado->execute();
 
@@ -136,9 +144,9 @@ class ActiveRecord
     }
 
     // Eliminar un registro - Toma el ID de Active Record
-    public function eliminar()
+    public function eliminar($pre = '')
     {
-        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->$this->id . " LIMIT 1";
+        $query = "DELETE FROM "  . static::$tabla . " WHERE {$pre} = " . $this->$pre;
         $resultado = self::$db->prepare($query);
         $resultado->execute();
 
@@ -177,24 +185,27 @@ class ActiveRecord
 
 
     // Identificar y unir los atributos de la BD
-    public function atributos()
+    public function atributos($pre)
     {
         $atributos = [];
         foreach (static::$columnasDB as $columna) {
-            if ($columna === 'id') continue;
+            if ($columna === $pre) continue;
             $atributos[$columna] = $this->$columna;
         }
         return $atributos;
     }
 
-    public function sanitizarAtributos()
+    public function sanitizarAtributos($pre)
     {
-        $atributos = $this->atributos();
+        if ($pre) {
+            $atributos = $this->atributos($pre);
+        }
+
         $sanitizado = [];
         foreach ($atributos as $key => $value) {
-            $sanitizado[$key] = self::$db->escape_string($value);
+            $sanitizado[$key] = $value;
         }
-        return $sanitizado;
+        return $atributos;
     }
 
     public function sincronizar($args = [])

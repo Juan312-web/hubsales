@@ -58,7 +58,13 @@ $router->post('/users', [UserController::class, 'index']);
 
 //= Users Add
 $router->get('/users-add', [UserController::class, 'addUser']);
+$router->post('/users-add', [UserController::class, 'addUser']);
 
+//= Users Update
+$router->get('/users-update', [UserController::class, 'updateUser']);
+$router->post('/users-update', [UserController::class, 'updateUser']);
+
+$router->post('/users-delete', [UserController::class, 'deleteUser']);
 
 // * Products
 $router->get('/products', [ProductController::class, 'index']);
@@ -79,6 +85,17 @@ $router->post('/invoices', [InvoiceController::class, 'index']);
 // * Payments
 $router->get('/payments', [PaymentController::class, 'index']);
 $router->post('/payments', [PaymentController::class, 'index']);
+
+// ? ----------------------------------------------------------------------------------------
+
+// ? API ------------------------------------------------------------------------------------
+
+// * Search
+$router->get('/api/users', [UserController::class, 'search']);
+$router->get('/api/products', [ProductController::class, 'search']);
+$router->get('/api/customers', [CustomerController::class, 'search']);
+$router->get('/api/invoices', [InvoiceController::class, 'search']);
+$router->get('/api/payments', [PaymentController::class, 'search']);
 
 // ? ----------------------------------------------------------------------------------------
 

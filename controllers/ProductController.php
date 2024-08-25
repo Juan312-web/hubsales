@@ -15,4 +15,12 @@ class ProductController
 
     $router->render('products/products', ['title' => 'PRODUCTS', 'desc' => 'Manage Your Products', 'allProducts' => $allProducts, 'allCategories' => $allCategories]);
   }
+
+  public static function search()
+  {
+    $value = $_GET['value'];
+    $products = Product::whereContains('prod_code', $value);
+
+    echo json_encode($products);
+  }
 }

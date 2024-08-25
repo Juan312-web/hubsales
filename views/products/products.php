@@ -8,7 +8,9 @@ $categories = $allCategories ?>
 
   <div class="content products default__dashboard">
     <?php
-    $inputPlaceholder = 'Search by Code';
+    $inputContent = '
+        <input data-search="prod_code" data-id="search__products" type="number" class="views__input"    placeholder="Search By Code">
+      ';
     $buttonContent = '
       <a id="productAdd" class="add__button boton boton--inline boton--secundary">Add Product</a>
       <a id="productSearch" class="search__button boton boton--inline">Search Product</a>
@@ -21,25 +23,25 @@ $categories = $allCategories ?>
     <div class="products__table">
       <table>
         <thead>
+          <th>Code</th>
           <th>Name</th>
           <th>Price</th>
           <th>Stock</th>
           <th>Categorie</th>
-          <th>Description</th>
         </thead>
         <tbody>
           <?php foreach ($products as $product) : ?>
-            <tr>
-              <td><?php echo $product->prod_name ?></td>
-              <td><?php echo $product->prod_u_price ?></td>
-              <td><?php echo $product->prod_stock ?></td>
+            <tr id="row" data-row='<?php echo $product->prod_code; ?>'>
+              <td data-label='Code'><?php echo $product->prod_code ?></td>
+              <td data-label='Name'><?php echo $product->prod_name ?></td>
+              <td data-label='Price'>$<?php echo $product->prod_u_price ?></td>
+              <td data-label='Stock'><?php echo $product->prod_stock ?> Units</td>
 
               <?php foreach ($categories as $categorie):  ?>
                 <?php if ($product->prod_cat_id === $categorie->cat_id):  ?>
-                  <td><?php echo $categorie->cat_name ?></td>
+                  <td data-label='Categorie'><?php echo $categorie->cat_name ?></td>
                 <?php endif ?>
               <?php endforeach ?>
-              <td class="ellipsis"><?php echo $product->prod_description ?></td>
             </tr>
           <?php endforeach ?>
         </tbody>

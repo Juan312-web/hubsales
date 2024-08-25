@@ -15,7 +15,7 @@
     @include_once __DIR__ . '/../components/view_header.php';
     ?>
 
-    <div class="categoires__table">
+    <div id="categoires__table" class="categoires__table">
       <table>
         <thead>
           <th>Name</th>

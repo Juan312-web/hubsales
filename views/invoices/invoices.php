@@ -7,7 +7,9 @@ $invoices = $AllinvoicesFormat;
 
   <div class="content invoices default__dashboard">
     <?php
-    $inputPlaceholder = 'Search by Code';
+    $inputContent = '
+        <input data-search="inv_identity" data-id="search__invoices" type="search" class="views__input"    placeholder="Search by Code">
+      ';
     $buttonContent = '
       <a id="invoiceAdd" class="add__button boton boton--inline boton--secundary">Add Invoice</a>
       <a id="invoiceSearch" class="search__button boton boton--inline">Search Invoice</a>
@@ -15,7 +17,7 @@ $invoices = $AllinvoicesFormat;
 
     @include_once __DIR__ . '/../components/view_header.php';
     ?>
-    <div class="invoices__table">
+    <div id="invoices__table" class="invoices__table">
       <table>
         <thead>
           <th>Id</th>
@@ -25,11 +27,11 @@ $invoices = $AllinvoicesFormat;
         </thead>
         <tbody>
           <?php foreach ($invoices as $invoice): ?>
-            <tr>
-              <td><?php echo $invoice->identity ?></td>
-              <td><?php echo $invoice->cli_name ?></td>
-              <td><?php echo $invoice->user_name ?></td>
-              <td><?php echo $invoice->date_exp ?></td>
+            <tr id="row" data-row="<?php echo $invoice->identity ?>">
+              <td data-label='Id'><?php echo $invoice->identity ?></td>
+              <td data-label='Customer'><?php echo $invoice->cli_name ?></td>
+              <td data-label='User'><?php echo $invoice->user_name ?></td>
+              <td data-label='Expiration'><?php echo $invoice->date_exp ?></td>
             </tr>
           <?php endforeach ?>
         </tbody>

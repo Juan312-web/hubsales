@@ -8,7 +8,7 @@
   <div class="content user__add">
     <form method="POST" id="user__add" class="form">
       <h2 class="form__title">
-        Add User
+        Update User
       </h2>
       <div class="form__row">
         <!-- * ------------------------------ * -->
@@ -27,7 +27,6 @@
         <div class="form__row__item">
           <label class="form__label" for="user_role">Role</label>
           <select name="user_role" id="user_role" class="form__input">
-            <option selected disabled>-- Select Role --</option>
             <?php foreach ($roles as $role): ?>
               <option <?php echo $data->user_role == $role->role_id ? 'selected' : ''; ?> class="form__option" value="<?php echo $role->role_id; ?>"><?php echo $role->role_name; ?></option>
             <?php endforeach ?>
@@ -45,7 +44,7 @@
           <input require autocomplete="email" name="user_email" id="user_email" type="email" class="form__input" placeholder="Ejm. correo@correo.com" value="<?php echo $data->user_email ?>">
         </div>
       </div>
-      <input id="send" type="submit" class="boton" value="Add User">
+      <input id="send" type="submit" class="boton" value="Update">
     </form>
   </div>
 </div>

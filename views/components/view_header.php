@@ -10,7 +10,7 @@
   </div>
 </div>
 <div id="views__search" class="search">
-  <input type="text" class="views__input" placeholder="<?php echo $inputPlaceholder ?>">
+  <?php echo $inputContent ?? '' ?>
   <span class="material-symbols-outlined search__icon">
     search
   </span>

@@ -22,7 +22,7 @@ class InvoiceController
     foreach ($allInvoices as $invoice) {
       $invoiceFormat = new InvoiceFormat();
 
-      $invoiceFormat->identity = $invoice->inv_Identity;
+      $invoiceFormat->identity = $invoice->inv_identity;
       $invoiceFormat->cli_name = Customer::where('cli_id', $invoice->inv_cli_id)->cli_name . ' ' . Customer::where('cli_id', $invoice->inv_cli_id)->cli_lastname;
       $invoiceFormat->user_name = User::where('user_id', $invoice->inv_user_id)->user_name . ' ' . User::where('user_id', $invoice->inv_user_id)->user_lastname;
       $invoiceFormat->date_exp = $invoice->inv_date_exp;
@@ -33,5 +33,12 @@ class InvoiceController
 
 
     $router->render('invoices/invoices', ['title' => 'INVOICES', 'desc' => 'Manage yout Invoices', 'AllinvoicesFormat' => $AllinvoicesFormat]);
+  }
+  public static function search()
+  {
+    $value = $_GET['value'];
+    $invoices = Invoice::whereContains("inv_identity", $value);
+
+    echo json_encode($invoices);
   }
 }

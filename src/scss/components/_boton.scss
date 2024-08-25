@@ -34,4 +34,20 @@
     }
   }
 
+  &--action {
+    @include m.boton(v.$color-900, v.$color-200, v.$color-300);
+    width: auto;
+    display: inline-block;
+    padding: .5rem 1rem;
+    color: v.$blanco;
+
+    &.delete {
+      background-color: v.$rojo;
+    }
+
+    &.update {
+      background-color: v.$verde;
+    }
+
+  }
 }
