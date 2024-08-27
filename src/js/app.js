@@ -70,6 +70,7 @@ function handleSearch() {
   inputSearch.forEach((input) => {
     input.addEventListener('input', (e) => {
       e.preventDefault();
+
       let inputTitle = input.getAttribute('data-id').split('__')[1];
       let dataSearch = input.getAttribute('data-search');
       let inputValue = e.target.value;

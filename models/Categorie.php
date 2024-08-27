@@ -4,7 +4,7 @@ namespace Model;
 
 class Categorie extends ActiveRecord
 {
-  protected static $tabla = 'product_categories';
+  protected static $tabla = 'productcategories';
   protected static $columnasDB = ['cat_id', 'cat_name', 'cat_description'];
 
   public $cat_id;

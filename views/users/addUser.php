@@ -5,7 +5,7 @@
 
 
 
-  <div class="content user__add">
+  <div class="content user__add content__center">
     <form method="POST" id="user__add" class="form">
       <h2 class="form__title">
         Add User

@@ -6,16 +6,18 @@
 
   <div class="content categories default__dashboard">
     <?php
-    $inputPlaceholder = 'Search by Name';
+    $inputContent = '
+        <input data-search="cat_id" data-id="search__categories" type="text" class="views__input"    placeholder="Search by Name">
+      ';
     $buttonContent = '
-      <a id="categoriesAdd" class="add__button boton boton--inline boton--secundary">Add Categorie</a>
-      <a id="categoriesSearch" class="search__button boton boton--inline">Search Categorie</a>
+      <a href="/categories-add" id="categorieAdd" class="add__button boton boton--inline boton--secundary">Add Categorie</a>
+      <a id="categorieSearch" class="search__button boton boton--inline">Search Categorie</a>
     ';
 
     @include_once __DIR__ . '/../components/view_header.php';
     ?>
 
-    <div id="categoires__table" class="categoires__table">
+    <div id="categories__table" class="categories__table">
       <table>
         <thead>
           <th>Name</th>
@@ -23,9 +25,9 @@
         </thead>
         <tbody>
           <?php foreach ($categories as $categorie) : ?>
-            <tr>
-              <td><?php echo $categorie->cat_name ?></td>
-              <td><?php echo $categorie->cat_description ?></td>
+            <tr id="row" data-row="<?php echo $categorie->cat_id; ?>">
+              <td data-label=' Name'><?php echo $categorie->cat_name ?></td>
+              <td data-label='Description'><?php echo $categorie->cat_description ?></td>
             </tr>
           <?php endforeach ?>
         </tbody>

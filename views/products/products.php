@@ -18,7 +18,7 @@ $categories = $allCategories ?>
 
     @include_once __DIR__ . '/../components/view_header.php';
     ?>
-    <a href="/categories" id="productSearch" class="search__button boton boton--inline space">Add Categorie</a>
+    <a href="/categories" id="categoriesSearch" class="search__button boton boton--inline space">Categories</a>
 
     <div class="products__table">
       <table>
