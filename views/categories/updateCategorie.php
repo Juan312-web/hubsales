@@ -8,7 +8,7 @@
   <div class="content categorie__add content__center">
     <form method="POST" id="categorie__add" class="form">
       <h2 class="form__title">
-        Add Categorie
+        Update Categorie
       </h2>
       <div class="form__row">
         <!-- * ------------------------------ * -->
@@ -24,7 +24,7 @@
           <textarea require name="cat_description" id="cat_description" class="form__input" maxlength="60" placeholder="Ejm. Deliscious coffee"><?php echo $data->cat_description ?></textarea>
         </div>
       </div>
-      <input id="send" type="submit" class="boton" value="Add Categorie">
+      <input id="send" type="submit" class="boton" value="Update">
     </form>
   </div>
 </div>

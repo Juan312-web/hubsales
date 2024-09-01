@@ -79,7 +79,6 @@ $router->post('/customers', [CustomerController::class, 'index']);
 $router->get('/categories', [CategorieController::class, 'index']);
 $router->post('/categories', [CategorieController::class, 'index']);
 
-
 //= Categories Add
 $router->get('/categories-add', [CategorieController::class, 'addCategorie']);
 $router->post('/categories-add', [CategorieController::class, 'addCategorie']);

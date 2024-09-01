@@ -15,7 +15,49 @@ class CategorieController
 
   public static function addCategorie(Router $router)
   {
-    $router->render('categories/addCategorie', []);
+    $categorie = new Categorie();
+    $alerts = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $categorie->sincronizar($_POST);
+      $alerts = $categorie->validateCategorie();
+
+      if (empty($alerts)) {
+        $categorie->guardar('cat_id');
+        header('location: /categories');
+      }
+    }
+
+    $router->render('categories/addCategorie', ["alertas" => $alerts, "data" => $categorie]);
+  }
+
+  public static function updateCategorie(Router $router)
+  {
+
+    $idCategorie = $_GET['id'];
+    $newCategorie = new Categorie();
+    $currentCategorie = Categorie::where('cat_id', $idCategorie);
+    $alerts = [];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $currentCategorie->sincronizar($_POST);
+      $alerts = $currentCategorie->validateCategorie();
+
+      if (empty($alerts)) {
+        $currentCategorie->guardar('cat_id');
+        header('location: /categories');
+      }
+    }
+
+    $router->render('categories/updateCategorie', ["alertas" => $alerts, "data" => $currentCategorie]);
+  }
+  public static function deleteCategorie()
+  {
+    $categorieId = $_POST['id'];
+    $categorie = Categorie::find('cat_id', $categorieId);
+    $categorie->eliminar('cat_id');
+
+    header("Location: " . $_SERVER['HTTP_REFERER']);
   }
 
   public static function search()
