@@ -12,7 +12,7 @@ $categories = $allCategories ?>
         <input data-search="prod_code" data-id="search__products" type="number" class="views__input"    placeholder="Search By Code">
       ';
     $buttonContent = '
-      <a id="productAdd" class="add__button boton boton--inline boton--secundary">Add Product</a>
+      <a href="/products-add" id="productAdd" class="add__button boton boton--inline boton--secundary">Add Product</a>
       <a id="productSearch" class="search__button boton boton--inline">Search Product</a>
     ';
 
@@ -28,6 +28,7 @@ $categories = $allCategories ?>
           <th>Price</th>
           <th>Stock</th>
           <th>Categorie</th>
+          <th>Actions</th>
         </thead>
         <tbody>
           <?php foreach ($products as $product) : ?>
@@ -42,6 +43,17 @@ $categories = $allCategories ?>
                   <td data-label='Categorie'><?php echo $categorie->cat_name ?></td>
                 <?php endif ?>
               <?php endforeach ?>
+              <td class="action__container">
+                <a class="boton--action update" href="/products-update?id=<?php echo $product->prod_id ?>"><span class="material-symbols-outlined">
+                    edit
+                  </span></a>
+                <form action="/products-delete" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar <?php echo $product->prod_name ?>?')">
+                  <input type="hidden" name="id" value="<?php echo $product->prod_id ?>">
+                  <button type="submit" class="boton--action delete "><span class="material-symbols-outlined">
+                      delete
+                    </span></button>
+                </form>
+              </td>
             </tr>
           <?php endforeach ?>
         </tbody>

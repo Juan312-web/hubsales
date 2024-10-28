@@ -1,0 +1,1 @@
+<h1>Hola desde la vista de: <?php echo $identity ?></h1>

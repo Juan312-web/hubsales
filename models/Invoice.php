@@ -23,4 +23,36 @@ class Invoice extends ActiveRecord
     $this->inv_user_id = $args['inv_user_id'] ?? '';
     $this->inv_identity = $args['inv_identity'] ?? '';
   }
+
+  public static  function validate($datos)
+  {
+    if (!$datos['customer']) {
+      self::$alertas['error'][] = 'Select Customer';
+    }
+
+    if (!$datos['user']) {
+      self::$alertas['error'][] = 'Select User';
+    }
+
+    if (!$datos['date_exp']) {
+      self::$alertas['error'][] = 'Select Date Expiration';
+    }
+
+    if (!$datos['products']) {
+      self::$alertas['error'][] = 'Select Product';
+    }
+
+
+    return self::$alertas;
+  }
+
+  public static function invoiceIdentidy()
+  {
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $id = substr(uniqid(), 6);
+    $identify = $year . $month . $day . $id;
+    return $identify;
+  }
 }

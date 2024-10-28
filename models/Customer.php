@@ -25,4 +25,43 @@ class Customer extends ActiveRecord
     $this->cli_email = $args['cli_email'] ?? '';
     $this->cli_phone = $args['cli_phone'] ?? '';
   }
+  public function validateCustomer()
+  {
+    if ($this->cli_name === '') {
+      self::$alertas['error'][] = 'The name is require';
+    }
+
+    if ($this->cli_lastname === '') {
+      self::$alertas['error'][] = 'The lastname is require';
+    }
+
+
+    if ($this->cli_identity === '') {
+      self::$alertas['error'][] = 'The identity is require';
+    }
+
+    if ($this->cli_address === '') {
+      self::$alertas['error'][] = 'The address is require';
+    }
+
+    if ($this->cli_email === '') {
+      self::$alertas['error'][] = 'The email is require';
+    }
+
+    if ($this->cli_phone === '') {
+      self::$alertas['error'][] = 'The phone is require';
+    }
+
+    return self::$alertas;
+  }
+  public function validateCurrentCustomer()
+  {
+    $customer = Customer::where('cli_identity', $this->cli_identity);
+
+    if ($customer) {
+      self::$alertas['error'][] = 'The customer already exist';
+    }
+
+    return self::$alertas;
+  }
 }

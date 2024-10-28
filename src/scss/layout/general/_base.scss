@@ -76,7 +76,7 @@
   }
 
   &__title {
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0;
   }
 
@@ -93,7 +93,8 @@
     column-gap: 2rem;
   }
 
-  &__input {
+  &__input,
+  &__inputs {
     width: 100%;
     background-color: v.$color-100;
     border: none;

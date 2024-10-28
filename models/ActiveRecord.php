@@ -116,11 +116,11 @@ class ActiveRecord
 
         $resultado = self::$db->prepare($query);
         $valores = array_values($atributos);
-
         $resultado->execute($valores);
-
+        $id = self::$db->lastInsertId();
         return [
             'resultado' =>  $resultado,
+            'id' => $id
         ];
     }
 

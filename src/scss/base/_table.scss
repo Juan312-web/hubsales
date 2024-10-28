@@ -30,6 +30,7 @@ table {
     }
 
     display: flex;
+    gap: .3rem;
     flex-direction: column;
     width: 100%;
     background: v.$color-100;
@@ -130,4 +131,16 @@ table {
 
 [data-label='Name'] {
   text-transform: capitalize;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  font-weight: v.$bold;
+  color: v.$color-900;
+
+  &__num {
+    color: v.$color-700;
+  }
 }

@@ -67,14 +67,6 @@ $router->post('/users-update', [UserController::class, 'updateUser']);
 //= Users Delete
 $router->post('/users-delete', [UserController::class, 'deleteUser']);
 
-// * Products
-$router->get('/products', [ProductController::class, 'index']);
-$router->post('/products', [ProductController::class, 'index']);
-
-// * Customers
-$router->get('/customers', [CustomerController::class, 'index']);
-$router->post('/customers', [CustomerController::class, 'index']);
-
 // * Categories
 $router->get('/categories', [CategorieController::class, 'index']);
 $router->post('/categories', [CategorieController::class, 'index']);
@@ -91,9 +83,57 @@ $router->post('/categories-update', [CategorieController::class, 'updateCategori
 $router->post('/categories-delete', [CategorieController::class, 'deleteCategorie']);
 
 
+// * Products
+$router->get('/products', [ProductController::class, 'index']);
+$router->post('/products', [ProductController::class, 'index']);
+
+
+//= Products Add
+$router->get('/products-add', [ProductController::class, 'addProduct']);
+$router->post('/products-add', [ProductController::class, 'addProduct']);
+
+//= Products Update
+$router->get('/products-update', [ProductController::class, 'updateProduct']);
+$router->post('/products-update', [ProductController::class, 'updateProduct']);
+
+//= Products Delete
+$router->post('/products-delete', [ProductController::class, 'deleteProduct']);
+
+
+// * Customers
+$router->get('/customers', [CustomerController::class, 'index']);
+$router->post('/customers', [CustomerController::class, 'index']);
+
+
+//= Customers Add
+$router->get('/customers-add', [CustomerController::class, 'addCustomer']);
+$router->post('/customers-add', [CustomerController::class, 'addCustomer']);
+
+//= Customers Update
+$router->get('/customers-update', [CustomerController::class, 'updateCustomer']);
+$router->post('/customers-update', [CustomerController::class, 'updateCustomer']);
+
+//= Customers Delete
+$router->post('/customers-delete', [CustomerController::class, 'deleteCustomer']);
+
+
 // * Invoices
 $router->get('/invoices', [InvoiceController::class, 'index']);
 $router->post('/invoices', [InvoiceController::class, 'index']);
+
+//= Invoices Add
+$router->get('/invoices-add', [InvoiceController::class, 'addInvoice']);
+$router->post('/invoices-add', [InvoiceController::class, 'addInvoice']);
+
+//= Invoices Download
+$router->get('/invoices-view', [InvoiceController::class, 'viewInvoice']);
+
+//= Invoices Download
+$router->get('/invoices-download', [InvoiceController::class, 'invoicePDF']);
+
+//= Invoices Delete
+$router->post('/invoices-delete', [InvoiceController::class, 'deleteInvoice']);
+
 
 // * Payments
 $router->get('/payments', [PaymentController::class, 'index']);

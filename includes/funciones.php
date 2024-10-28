@@ -36,4 +36,3 @@ function normalizeStr($str)
     }, $norm);
     return $norm;
 }
-

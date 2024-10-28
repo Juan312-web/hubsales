@@ -21,7 +21,7 @@
         <!-- * ------------------------------ * -->
         <div class="form__row__item">
           <label class="form__label" for="cat_description">Description</label>
-          <textarea require name="cat_description" id="cat_description" class="form__input" maxlength="60" placeholder="Ejm. Deliscious coffee"><?php echo $data->cat_description ?></textarea>
+          <textarea require name="cat_description" id="cat_description" class="form__input desc" maxlength="60" placeholder="Ejm. Deliscious coffee"><?php echo $data->cat_description ?></textarea>
         </div>
       </div>
       <input id="send" type="submit" class="boton" value="Add Categorie">

@@ -1,0 +1,61 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+#container {
+  position: relative;
+}
+
+.modal {
+
+  &__input__invoice {
+    border: 1px solid v.$color-800;
+    max-width: 7rem;
+    text-align: center;
+    font-weight: v.$bold;
+  }
+
+  &.active {
+    display: flex;
+  }
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($color: #000000, $alpha: .5);
+  z-index: 1000000;
+
+  &__content {
+    position: relative;
+
+    form {
+      background-color: rgba($color: #ffffff, $alpha: 1);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    font-size: 5rem;
+    filter: invert(100%);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+
+
+  @include m.tablet {
+    &__content {
+
+      min-width: 50%;
+    }
+  }
+}

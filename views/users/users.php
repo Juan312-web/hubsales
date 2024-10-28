@@ -33,11 +33,16 @@
               <td data-label='Name'><?php echo $user->user_name . ' ' . $user->user_lastname; ?></td>
               <td data-label='Role'><?php echo $user->user_role === 1 ? 'Admin' : 'Normal'; ?></td>
               <td data-label='Email'><?php echo $user->user_email; ?></td>
+
               <td class="action__container">
-                <a class="boton--action update" href="/users-update?id=<?php echo $user->user_id ?>">Update</a>
+                <a class="boton--action update" href="/users-update?id=<?php echo $user->user_id ?>"><span class="material-symbols-outlined">
+                    edit
+                  </span></a>
                 <form action="/users-delete" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?')">
                   <input type="hidden" name="id" value="<?php echo $user->user_id ?>">
-                  <button type="submit" class="boton--action delete ">Delete</button>
+                  <button type="submit" class="boton--action delete "><span class="material-symbols-outlined">
+                      delete
+                    </span></button>
                 </form>
               </td>
             </tr>

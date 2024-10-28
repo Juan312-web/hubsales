@@ -20,10 +20,15 @@
   &__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
     margin: 1.5rem 0;
+
+    &.top {
+      margin-top: 5rem;
+    }
 
     &__item {
       display: flex;
@@ -55,6 +60,20 @@
     text-transform: capitalize;
   }
 
+  &__container__search {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+
+    button {
+      flex: .5;
+    }
+
+    input {
+      flex: 4;
+    }
+  }
+
   @include m.tablet {
     &__row {
       flex-direction: row;
@@ -64,6 +83,11 @@
         flex-direction: column;
         width: 100%;
       }
+    }
+
+    &__container__search {
+      flex-direction: row-reverse;
+
     }
   }
 }

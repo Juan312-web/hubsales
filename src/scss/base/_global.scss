@@ -55,5 +55,13 @@ a {
 }
 
 textarea {
-  resize: none
+  resize: none;
+
+  &.desc {
+    height: 15rem;
+  }
+}
+
+.zindex {
+  z-index: 100000;
 }

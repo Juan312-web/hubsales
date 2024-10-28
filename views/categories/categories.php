@@ -31,10 +31,14 @@
               <td data-label=' Name'><?php echo $categorie->cat_name ?></td>
               <td class="ellipese" data-label='Description'><?php echo $categorie->cat_description ?></td>
               <td class="action__container">
-                <a class="boton--action update" href="/categories-update?id=<?php echo $categorie->cat_id ?>">Update</a>
+                <a class="boton--action update" href="/categories-update?id=<?php echo $categorie->cat_id ?>"><span class="material-symbols-outlined">
+                    edit
+                  </span></a>
                 <form action="/categories-delete" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?')">
                   <input type="hidden" name="id" value="<?php echo $categorie->cat_id ?>">
-                  <button type="submit" class="boton--action delete ">Delete</button>
+                  <button type="submit" class="boton--action delete "><span class="material-symbols-outlined">
+                      delete
+                    </span></button>
                 </form>
               </td>
             </tr>
